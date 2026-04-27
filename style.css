@@ -1,0 +1,216 @@
+/* 全局重置 */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft Yahei",sans-serif;}
+ul{list-style:none;}
+a{text-decoration:none;color:#333;}
+img{width:100%;display:block;object-fit:cover;}
+.container{width:1200px;margin:0 auto;}
+
+/* ========== 顶部第一行 登录栏（原图深黑背景+白色文字） ========== */
+.top-bar-first{background:#212121;padding:10px 0;}
+.top-bar-first .user-links{text-align:right;font-size:13px;color:#fff;}
+.top-bar-first .user-links a{color:#fff;margin-left:18px;}
+
+/* ========== 顶部第二行 Logo+导航+搜索（精准匹配原图尺寸间距） ========== */
+.top-bar-second{padding:12px 0;border-bottom:1px solid #eee;display:flex;align-items:center;}
+.top-bar-second .container{display:flex;align-items:center;justify-content:space-between;gap:40px;}
+/* Logo原图尺寸+副标题 */
+.top-bar-second .logo{display:flex;align-items:center;gap:12px;}
+.top-bar-second .logo img{height:56px;width:auto;}
+.logo-subtitle{font-size:12px;color:#666;line-height:1.2;}
+/* 主导航文字大小、间距 */
+.top-bar-second .nav-main{display:flex;gap:28px;font-size:16px;align-items:center;}
+.top-bar-second .nav-main a.active{color:#00b894;font-weight:bold;}
+/* 右侧搜索+购物车 */
+.top-bar-second .header-right{display:flex;align-items:center;gap:24px;}
+.search-box{display:flex;border:1px solid #eee;border-radius:24px;padding:8px 16px;width:220px;}
+.search-box input{border:none;outline:none;width:100%;font-size:14px;}
+.search-box button{border:none;background:transparent;cursor:pointer;color:#999;font-size:14px;}
+.cart-icon{font-size:22px;color:#333;position:relative;}
+.cart-icon .cart-count{
+    position:absolute;top:-8px;right:-10px;
+    background:#ff4444;color:#fff;font-size:10px;
+    padding:2px 5px;border-radius:10px;min-width:18px;text-align:center;
+}
+
+/* ========== 左侧分类+Banner整体（原图深灰侧边栏！） ========== */
+.banner-wrap{margin-top:12px;}
+.banner-wrap .container{display:flex;gap:0;}
+/* 左侧侧边分类【原图深黑色背景+白色文字，完全匹配】 */
+.left-category{width:220px;background:#333333;color:#fff;}
+.left-category ul li{
+    padding:12px 18px;border-bottom:1px solid #444;
+    display:flex;justify-content:space-between;align-items:center;
+    cursor:pointer;font-size:16px;
+}
+.left-category ul li span{font-size:13px;color:#bbbbbb;}
+.left-category ul li:hover{background:#444;}
+
+/* 右侧轮播Banner（精准原图高度、文字大小、位置） */
+.banner-slider{flex:1;overflow:hidden;position:relative;}
+.banner-item{height:100%;}
+.banner-item img{width:100%;height:100%;object-fit:cover;}
+.banner-text{position:absolute;left:60px;top:45%;transform:translateY(-50%);color:#333;}
+.banner-text h2{font-size:32px;letter-spacing:3px;opacity:0.7;font-weight:normal;}
+.banner-text h1{font-size:60px;margin:12px 0;font-weight:600;}
+.banner-text p{font-size:20px;margin-bottom:16px;letter-spacing:2px;}
+.banner-text .banner-date{font-size:12px;color:#999;margin-top:8px;}
+.banner-go{
+    background:#00b894;color:#fff;border:none;
+    width:52px;height:52px;border-radius:50%;cursor:pointer;
+    font-size:14px;margin-top:20px;
+}
+
+/* ========== 通用模块样式（完全匹配原图标题大小、间距） ========== */
+.section{margin:40px 0;}
+.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;}
+.section-header h2{font-size:26px;color:#333;font-weight:600;}
+.sub-title{font-size:13px;color:#999;margin-top:6px;}
+.more{color:#666;font-size:14px;}
+.sub-nav{display:flex;gap:20px;font-size:14px;margin-left:30px;}
+.sub-nav a.active{color:#00b894;font-weight:bold;}
+
+/* ========== 商品网格（1:1原图图片宽高比例！卡片大小！文字大小！） ========== */
+.goods-grid{display:flex;flex-wrap:wrap;gap:24px;}
+/* 新鲜好物4列：完全原图比例 */
+.four-col .goods-card{width:calc((100% - 72px)/4);}
+/* 生鲜/服装/餐厨/居家5列：完全原图2行5列比例 */
+.two-row-five-col {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 24px;
+}
+
+.two-row-five-col .goods-card {
+    width: 100%; /* grid 布局下不用 calc 了 */
+}
+
+/* 关键：左侧大卡片跨2行 */
+.two-row-five-col .big-card {
+    grid-row: span 2;
+}
+
+/* 必须把 .goods-grid 改成 grid 布局，flex-wrap 做不到跨2行 */
+.two-row-five-col {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 24px; /* 和原来的 gap 保持一致 */
+}
+
+.goods-card{
+  border-radius:8px;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid #f1f1f1;
+  /* 让卡片高度由内容撑开 */
+  display:flex;
+  flex-direction:column;
+}
+/* 商品图片高度！改成不裁切 */
+.goods-card img{
+  width:100%;
+  height:auto;
+  /* 关键：把 cover 改成 contain，图片完整显示 */
+  object-fit:contain;
+  /* 给图片加个背景，让透明部分也有底色 */
+  background-color:#f5f5f5;
+}
+/* 商品标题文字大小、行高、内边距 完全匹配原图 */
+.goods-card h3{
+    font-size:14px;padding:12px 12px 8px;
+    color:#333;font-weight:normal;line-height:1.4;
+    height:48px;overflow:hidden;
+}
+/* 价格文字大小、颜色、内边距 */
+.price{
+    color:#e53e3e;font-weight:600;font-size:16px;
+    padding:0 12px 12px;
+}
+
+/* 左侧大竖版广告卡片 */
+.big-card{position:relative;}
+.big-card img{height:calc(220px * 2 + 24px);object-fit:cover;}
+.card-text-big{position:absolute;top:24px;left:24px;color:#fff;font-size:20px;font-weight:bold;text-shadow:0 2px 6px rgba(0,0,0,0.6);}
+
+/* 人气推荐横幅卡片 */
+.banner-card{
+  /* 取消绝对定位，用 flex 布局 */
+  display:flex;
+  flex-direction:column;
+}
+.banner-card img{
+  width:100%;
+  height:auto;
+  /* 图片完整显示，不裁切 */
+  object-fit:contain;
+  background-color:#f5f5f5;
+}
+/* 取消 .card-text 样式，因为你现在的 HTML 里已经没有这个标签了 */
+.card-text{
+  display:none;
+}
+.card-desc{
+  /* 取消绝对定位，让它自然在图片下方 */
+  position:static;
+  text-align:center;
+  color:#666;
+  font-size:13px;
+  background:#fff;
+  padding:14px 0;
+  width:100%;
+}
+/* ========== 热门品牌区域（原图尺寸比例） ========== */
+.brand-grid{display:flex;gap:24px;}
+.brand-item{width:calc((100% - 96px)/5);text-align:center;}
+.brand-item img{height:260px;border-radius:8px;object-fit:cover;}
+.brand-tag{margin-top:12px;font-size:13px;color:#666;}
+
+/* ========== 最新专题区域（原图比例） ========== */
+.topic-grid{
+    display:flex;
+    gap:24px;
+}
+.topic-item{
+    width:calc((100% - 48px)/3);
+}
+.topic-item img{
+    height:280px;
+    border-radius:8px;
+    object-fit:cover;
+}
+.topic-info{
+    display:flex;
+    gap:24px;
+    font-size:14px;
+    color:#666;
+    padding:12px 0;
+}
+.topic-info i{
+    margin-right:4px;
+}
+
+/* ========== 服务优势区域（原图样式） ========== */
+.service-section{background:#f8f8f8;padding:48px 0;margin:40px 0;}
+.service-section .container{display:flex;justify-content:space-around;}
+.service-item{display:flex;align-items:center;gap:12px;font-size:18px;color:#333;}
+.service-item i{font-size:26px;color:#00b894;}
+
+/* ========== 底部Footer（完全匹配第二张效果图样式文字大小） ========== */
+.footer{background:#f5f5f5;padding:50px 0 24px;color:#666;font-size:13px;}
+.footer-links{display:flex;justify-content:space-between;margin-bottom:32px;}
+.footer-col h4{font-size:15px;color:#333;margin-bottom:16px;font-weight:600;}
+.footer-col a{display:block;color:#666;margin:10px 0;font-size:13px;}
+.code-col{display:flex;gap:30px;}
+.code-item{text-align:center;}
+.code-item img{width:88px;height:88px;margin-bottom:10px;}
+.footer-bottom{text-align:center;border-top:1px solid #eee;padding-top:24px;margin-top:24px;}
+.footer-bottom p{margin:10px 0;font-size:12px;}
+.student-info{color:#999;margin-top:12px;}
+.bg-light{background:#f8f8f8;padding:24px 0;}
+/* 人气推荐图片完整显示 */
+.banner-card {
+  display: flex;
+  flex-direction: column;
+}
+.banner-card .card-desc {
+  margin-top: auto;
+}
